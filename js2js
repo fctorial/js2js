@@ -1,0 +1,15 @@
+#!/bin/sh
+
+if [[ s$1 = s || s$2 = s ]]; then
+  echo 'Usage:
+  js2js <source file> <destinition file>'
+elif ! [[ -f $1 ]]; then
+  echo "$1 does not exist"
+elif ! [[ "${1##*.}" = "js" ]]; then
+  echo "$1 isn't a js file"
+elif [[ -e $2 ]]; then
+  echo "$2 already exists"
+else
+  cp $1 $2
+fi
+
